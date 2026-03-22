@@ -1,6 +1,8 @@
 # HungryHub – Restaurant Menu Management API (Echo + MySQL)
 
 Implements the take-home assignment REST API using Go, Echo, and MySQL.
+HungryHub is a profitable restaurant technology company based in Thailand (this is not real project - just for take home test).
+We build products that power restaurant discovery, booking, payments, and analytics. Our main platform runs on a Ruby on Rails monolith with MySQL, Redis, Sidekiq, and Elasticsearch on AWS.
 
 ## Tech stack
 
