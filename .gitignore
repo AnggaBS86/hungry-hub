@@ -1,0 +1,32 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Go build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.coverprofile
+/api
+/bin/
+/dist/
+/build/
+/coverage/
+/tmp/
+
+# Dependency directories (uncomment if you don't commit vendor/)
+# /vendor/
+
+# Logs
+*.log
+
+# Editor/OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS schema_migrations (
+  version VARCHAR(255) NOT NULL PRIMARY KEY,
+  applied_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS restaurants (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  phone VARCHAR(50) NULL,
+  opening_hours VARCHAR(255) NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS menu_items (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  restaurant_id BIGINT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  category VARCHAR(50) NULL,
+  is_available BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_menu_items_restaurant
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants(id)
+    ON DELETE CASCADE,
+  INDEX idx_menu_items_restaurant_id (restaurant_id),
+  INDEX idx_menu_items_category (category),
+  INDEX idx_menu_items_name (name)
+);
+
